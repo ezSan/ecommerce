@@ -1,7 +1,17 @@
-import React from 'react'
+// pages/admin-panel.js
+import ProductForm from '@/components/ProductForm';
+import { Container, Heading } from '@chakra-ui/react';
 
-export default function authorized() {
+
+
+const AdminPanel = () => {
   return (
-    <div>Estas autorizado a ingresar al site mirey</div>
-  )
-}
+    <Container maxW="container.md" mt={8}>
+      <Heading mb={4}>Panel de Administrador</Heading>
+      <ProductForm/>
+    
+    </Container>
+  );
+};
+
+export default AdminPanel;
