@@ -1,21 +1,18 @@
 // components/ProductForm.js
-import { useState } from 'react';
-import {
-  FormControl,
-  FormLabel,
-  Input,
-  Select,
-  Button,
-  VStack,
-} from '@chakra-ui/react';
+import { useState } from "react";
+
+import styles from "@/app/scss/globals.module.scss";
+
+const { product_form_container, product_form, form_control, submit_button } =
+  styles;
 
 const ProductForm = () => {
   const [productData, setProductData] = useState({
-    name: '',
-    brand: '',
-    capacity: '',
-    price: '',
-    image: '',
+    name: "",
+    brand: "",
+    capacity: "",
+    price: "",
+    image: "",
   });
 
   const handleChange = (e) => {
@@ -29,36 +26,36 @@ const ProductForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Enviar datos al servidor (simulado)
-    console.log('Datos del producto:', productData);
+    console.log("Datos del producto:", productData);
     // Aquí realizarías la lógica de envío a la API
   };
 
   return (
-    <VStack spacing={4} align="stretch">
-      <form onSubmit={handleSubmit}>
-        <FormControl>
-          <FormLabel>Nombre del Producto:</FormLabel>
-          <Input
+    <div className={product_form_container}>
+      <form onSubmit={handleSubmit} className={product_form}>
+        <div className={form_control}>
+          <label>Nombre del Producto:</label>
+          <input
             type="text"
             name="name"
             value={productData.name}
             onChange={handleChange}
             required
           />
-        </FormControl>
-        <FormControl>
-          <FormLabel>Marca:</FormLabel>
-          <Input
+        </div>
+        <div className={form_control}>
+          <label>Marca:</label>
+          <input
             type="text"
             name="brand"
             value={productData.brand}
             onChange={handleChange}
             required
           />
-        </FormControl>
-        <FormControl>
-          <FormLabel>Capacidad:</FormLabel>
-          <Select
+        </div>
+        <div className={form_control}>
+          <label>Capacidad:</label>
+          <select
             name="capacity"
             value={productData.capacity}
             onChange={handleChange}
@@ -68,33 +65,33 @@ const ProductForm = () => {
             <option value="64">64 GB</option>
             <option value="128">128 GB</option>
             <option value="256">256 GB</option>
-          </Select>
-        </FormControl>
-        <FormControl>
-          <FormLabel>Precio:</FormLabel>
-          <Input
+          </select>
+        </div>
+        <div className={form_control}>
+          <label>Precio:</label>
+          <input
             type="number"
             name="price"
             value={productData.price}
             onChange={handleChange}
             required
           />
-        </FormControl>
-        <FormControl>
-          <FormLabel>Imagen:</FormLabel>
-          <Input
+        </div>
+        <div className={form_control}>
+          <label>Imagen:</label>
+          <input
             type="file"
             accept="image/*"
             name="image"
             onChange={handleChange}
             required
           />
-        </FormControl>
-        <Button type="submit" colorScheme="teal">
+        </div>
+        <button type="submit" className={submit_button}>
           Agregar Producto
-        </Button>
+        </button>
       </form>
-    </VStack>
+    </div>
   );
 };
 
