@@ -1,15 +1,13 @@
 // pages/admin-panel.js
-import ProductForm from '@/components/ProductForm';
-import { Container, Heading } from '@chakra-ui/react';
-
-
+import ProductContainer from "@/components/ProductContainer";
+import ProductForm from "@/components/ProductForm";
 
 const AdminPanel = () => {
   return (
-    <Container maxW="container.md" mt={8}>
-      <Heading mb={2}>Panel de Administrador</Heading>
-      <ProductForm/>    
-    </Container>
+    <div>
+      <ProductForm />
+      <ProductContainer />
+    </div>
   );
 };
 

@@ -1,0 +1,32 @@
+
+.product_card {
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card_image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+  }
+  
+  .card_info {
+    padding: 10px;
+  }
+  
+  .card_name {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  .card_brand,
+  .card_capacity,
+  .card_price {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  
