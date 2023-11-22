@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styles from "@/app/scss/globals.module.scss";
 import Image from "next/image";
-import asd from '/public/next.svg'
+
 
 const ProductCard = ({ product }) => {
   const { name, brand, capacity, price, image } = product;

@@ -1,10 +1,11 @@
 // components/ProductForm.js
 import { useState } from "react";
-
 import styles from "@/app/scss/globals.module.scss";
 
 const { product_form_container, product_form, form_control, submit_button } =
   styles;
+
+const capacities = ["32 GB", "64 GB", "128 GB", "256 GB"];
 
 const ProductForm = () => {
   const [productData, setProductData] = useState({
@@ -12,22 +13,43 @@ const ProductForm = () => {
     brand: "",
     capacity: "",
     price: "",
-    image: "",
+    image: null, // Usamos null para el campo de imagen
   });
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value, type } = e.target;
     setProductData((prevData) => ({
       ...prevData,
-      [name]: value,
+      [name]: type === "file" ? e.target.files[0] : value,
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Enviar datos al servidor (simulado)
-    console.log("Datos del producto:", productData);
-    // Aquí realizarías la lógica de envío a la API
+
+    const formData = new FormData();
+    formData.append("name", productData.name);
+    formData.append("brand", productData.brand);
+    formData.append("capacity", productData.capacity);
+    formData.append("price", productData.price);
+    formData.append("image", productData.image);
+
+    try {
+      const response = await fetch("/api/newProduct", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        console.log("Producto enviado exitosamente:", result.product);
+        // Puedes redirigir o realizar otras acciones después de agregar el producto
+      } else {
+        console.error("Error al enviar el producto");
+      }
+    } catch (error) {
+      console.error("Error de red:", error);
+    }
   };
 
   return (
@@ -61,10 +83,11 @@ const ProductForm = () => {
             onChange={handleChange}
             required
           >
-            <option value="32">32 GB</option>
-            <option value="64">64 GB</option>
-            <option value="128">128 GB</option>
-            <option value="256">256 GB</option>
+            {capacities.map((option) => (
+              <option key={option} value={option.split(" ")[0]}>
+                {option}
+              </option>
+            ))}
           </select>
         </div>
         <div className={form_control}>
@@ -85,6 +108,7 @@ const ProductForm = () => {
             name="image"
             onChange={handleChange}
             required
+            placeholder="Selecciona una imagen"
           />
         </div>
         <button type="submit" className={submit_button}>
