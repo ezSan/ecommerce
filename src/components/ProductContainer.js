@@ -1,15 +1,31 @@
-// components/ProductContainer.js
-import React from 'react';
-import ProductCard from './ProductCard';
-import productsData from '../data/products.json'; // Ajusta la ruta según la ubicación de tu archivo de datos
+'use client'
+import React, { useState, useEffect } from "react";
+import ProductCard from "./ProductCard";
 
 const ProductContainer = () => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("/api/getProducts");
+        if (!response.ok) {
+          throw new Error("Error al obtener productos");
+        }
+        const data = await response.json();
+        setProducts(data);
+      } catch (error) {
+        console.error(error.message);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <div>
-      {productsData.map((product) => (
-        
+      {products.map((product) => (
         <ProductCard key={product.id} product={product} />
-        
       ))}
     </div>
   );

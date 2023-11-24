@@ -1,0 +1,84 @@
+@use "../utils/colors" as *;
+
+
+.header {
+    background-color: #333;
+    color: $primary-color;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: $primary-color;
+    text-decoration: none;
+  }
+
+  .logoContainer{
+    margin:0;
+    a{
+        margin: 0;
+
+    }
+  }
+  
+  .nav {
+    display: flex;
+    align-items: center;
+  }
+  
+  .menuToggle {
+    cursor: pointer;
+    display: none;
+    flex-direction: column;
+    span {
+      height: 3px;
+      width: 25px;
+      background: $primary-color;
+      margin: 3px 0;
+      border-radius: 5px;
+    }
+  }
+  
+  .navList {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .navItem {
+    margin: 0;
+  }
+  
+  .navLink {
+    text-decoration: none;
+    color: $primary-color;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  
+  .mobileNav {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  @media (max-width: 768px) {
+    .menuToggle {
+      display: flex;
+    }
+  
+    .navList {
+      display: none;
+    }
+  }
+  

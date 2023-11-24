@@ -1,0 +1,12 @@
+@use '../utils/colors' as *;
+
+
+.styledFooter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: $bg-color;
+    color: $primary-color;
+   
+}
