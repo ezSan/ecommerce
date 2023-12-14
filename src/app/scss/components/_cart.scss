@@ -1,0 +1,64 @@
+@use "../utils/colors" as *;
+
+.cartContainer {
+  position: relative;
+  cursor: pointer;
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  margin-right: 12px;
+}
+
+.cartIcon {
+  font-size: 1.5rem;
+  margin-right: 8px;
+  transform: scale(1.6);
+}
+
+.cartItemCount {
+  position: absolute;
+  top: 16px;
+  right: 28px;
+  background-color: $primary-color;
+  color: white;
+  border-radius: 50%;
+  padding: 4px 8px;
+  font-size: 0.9rem;
+  p {
+    margin: 0;
+  }
+}
+
+.cartDropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-bottom: 8px;
+    }
+  }
+
+  button {
+    margin-top: 8px;
+    padding: 8px;
+    background-color: #0070f3;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+}

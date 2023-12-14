@@ -3,8 +3,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import styles from "../app/scss/globals.module.scss";
-import Image from "next/image";
-import Logo from "/public/assets/logo.png";
+import Cart from "./Cart";
+
 const Header = () => {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
@@ -12,52 +12,45 @@ const Header = () => {
     setIsMobileNavOpen(!isMobileNavOpen);
   };
 
+  const {
+    header,
+    logo,
+    logoContainer,
+    nav,
+    menuToggle,
+    navList,
+    navItem,
+    navLink,
+    movileNav,
+  } = styles;
+
   return (
-    <header className={styles.header}>
-      <nav className={styles.nav}>
-        <div className={styles.menuToggle} onClick={toggleMobileNav}>
+    <header className={header}>
+      <div className={logoContainer}>
+        <p>Ecommerce</p>
+      </div>
+      <nav className={nav}>
+        <div className={menuToggle} onClick={toggleMobileNav}>
           <span></span>
           <span></span>
           <span></span>
         </div>
-        <div className={styles.logoContainer}>
-          <Link href="/">
-            <Image src={Logo} alt="logo" width={140} height={140} className={styles.logo}/>
+
+        <ul className={`${navList} ${isMobileNavOpen ? mobileNav : ""}`}>
+          <Link href="/tienda" className={navLink}>
+            INICIO
           </Link>
-        </div>
-        <ul
-          className={`${styles.navList} ${
-            isMobileNavOpen ? styles.mobileNav : ""
-          }`}
-        >
-          <li>
-            <Link href="/tienda" className={styles.navLink}>
-              INICIO
-            </Link>
-          </li>
-          <li>
-            <Link href="/adminPanel" className={styles.navLink}>
-              SOBRE NOSOTROS
-            </Link>
-          </li>
-          <li>
-            <Link href="/adminPanel" className={styles.navLink}>
-              ADMINISTRAR TIENDA
-            </Link>
-          </li>
-          {/* Agrega más enlaces según sea necesario */}
+
+          <Link href="/adminPanel" className={navLink}>
+            SOBRE NOSOTROS
+          </Link>
+
+          <Link href="/adminPanel" className={navLink}>
+            ADMINISTRAR TIENDA
+          </Link>
         </ul>
-        <div className={styles.searchCartContainer}>
-          {/* Agrega el componente de búsqueda aquí */}
-          <div className={styles.searchIcon}>
-            {/* <img src="/path/to/your/search-icon.png" alt="Search" /> */}
-          </div>
-          {/* Agrega el componente del carrito aquí */}
-          <div className={styles.cartIcon}>
-            {/*  <img src="/path/to/your/cart-icon.png" alt="Cart" /> */}
-          </div>
-        </div>
       </nav>
+      <Cart />
     </header>
   );
 };

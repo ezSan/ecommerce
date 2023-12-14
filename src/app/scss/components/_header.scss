@@ -1,84 +1,89 @@
 @use "../utils/colors" as *;
-
+@use "../utils/fonts" as *;
 
 .header {
-    background-color: #333;
-    color: $primary-color;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: $primary-color;
-    text-decoration: none;
-  }
+  background-color: $bg-color;
+  color: $primary-color;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  color: $primary-color;
+  font-family: $roboto;
+}
 
-  .logoContainer{
-    margin:0;
-    a{
-        margin: 0;
+.logo {
+  font-size: 2rem;
+}
 
-    }
+.logoContainer {
+  color: $primary-color;
+  font-weight: 700;
+  p {
+    font-size: xx-large;
+    margin: 6px;
   }
-  
-  .nav {
-    display: flex;
-    align-items: center;
-  }
-  
-  .menuToggle {
-    cursor: pointer;
-    display: none;
-    flex-direction: column;
-    span {
-      height: 3px;
-      width: 25px;
-      background: $primary-color;
-      margin: 3px 0;
-      border-radius: 5px;
-    }
-  }
-  
-  .navList {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-  }
-  
-  .navItem {
-    margin: 0;
-  }
-  
-  .navLink {
-    text-decoration: none;
-    color: $primary-color;
-    font-weight: bold;
-    font-size: 1rem;
-  }
-  
-  .mobileNav {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 70px;
-    right: 20px;
-    background-color: #333;
-    padding: 10px;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 60%;
+  margin: 0;
+}
+
+.menuToggle {
+  cursor: pointer;
+  display: none;
+  flex-direction: column;
+  span {
+    height: 3px;
+    width: 25px;
+    background: $primary-color;
+    margin: 3px 0;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   }
+}
+
+.navList {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  width: 60%;
+}
+
+.navItem {
+  margin: 0;
+}
+
+.navLink {
+  text-decoration: none;
+  color: inherit;
   
-  @media (max-width: 768px) {
-    .menuToggle {
-      display: flex;
-    }
-  
-    .navList {
-      display: none;
-    }
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.mobileNav {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 70px;
+  right: 20px;
+  background-color: $primary-color;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+}
+
+@media (max-width: 768px) {
+  .menuToggle {
+    display: flex;
   }
-  
+
+  .navList {
+    display: none;
+  }
+}

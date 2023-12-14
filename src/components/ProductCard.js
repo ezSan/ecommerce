@@ -1,9 +1,10 @@
+// ProductCard.js
 import React from "react";
 import PropTypes from "prop-types";
 import styles from "@/app/scss/globals.module.scss";
 import Image from "next/image";
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, addToCart }) => {
   const { name, brand, capacity, price, image } = product;
   const {
     product_card,
@@ -13,8 +14,12 @@ const ProductCard = ({ product }) => {
     card_brand,
     card_capacity,
     card_price,
-    buy_button
+    buy_button,
   } = styles;
+
+  const handleAddToCart = () => {
+    addToCart(product);
+  };
 
   return (
     <div className={product_card}>
@@ -29,9 +34,10 @@ const ProductCard = ({ product }) => {
       <div className={card_info}>
         <h2 className={card_name}>{name}</h2>
         <p className={card_brand}>{brand}</p>
-        <p className={card_capacity}>{`Capacity: ${capacity} GB`}</p>
-        
-        <button className={buy_button}>Add to Cart</button>
+        <p className={card_capacity}>{`${capacity} GB`}</p>
+        <p className={card_capacity}>{` ${price} u$`}</p>
+
+        <button className={buy_button} onClick={handleAddToCart}n>Add to Cart</button>
       </div>
     </div>
   );
@@ -45,6 +51,7 @@ ProductCard.propTypes = {
     price: PropTypes.number.isRequired,
     image: PropTypes.string.isRequired,
   }).isRequired,
+  addToCart: PropTypes.func.isRequired,
 };
 
 export default ProductCard;
