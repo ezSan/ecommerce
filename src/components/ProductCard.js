@@ -25,7 +25,7 @@ const ProductCard = ({ product, addToCart }) => {
   return (
     <div className={product_card}>
       <div className={card_image}>
-        <Image src={image} alt={`${name} product`} width={150} height={150} />
+        <Image src={image} alt={`${name} product`} width={150} height={150}  priority />
       </div>
       <div className={card_info}>
         <h2 className={card_name}>{name}</h2>
@@ -33,7 +33,7 @@ const ProductCard = ({ product, addToCart }) => {
         <p className={card_capacity}>{`${capacity} GB`}</p>
         <p className={card_capacity}>{` ${price} u$`}</p>
 
-        <button className={buy_button} onClick={handleAddToCart} n>
+        <button className={buy_button} onClick={handleAddToCart}>
           Add to Cart
         </button>
       </div>

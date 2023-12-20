@@ -4,15 +4,23 @@
     "name": "15",
     "brand": "Iphone",
     "capacity": "128",
-    "price": 900,
+    "price": 920,
     "image": "/iphone.png"
   },
   {
     "id": 2,
-    "name": "Producto 2",
-    "brand": "Marca 2",
+    "name": "Iphone 14",
+    "brand": "Iphone",
     "capacity": "128",
     "price": 79.99,
-    "image": "/iphone.png"
+    "image": "/iphone14.png"
+  },
+  {
+    "id": 3,
+    "name": "S23fe",
+    "brand": "Samsung",
+    "capacity": "256",
+    "price": 550,
+    "image": "/s23fe.jpg"
   }
 ]

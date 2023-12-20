@@ -21,7 +21,7 @@ const Header = () => {
     navList,
     navItem,
     navLink,
-    movileNav,
+    mobileNav,
   } = styles;
 
   return (
