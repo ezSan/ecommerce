@@ -34,7 +34,7 @@ const ProductCard = ({ product, addToCart }) => {
         <p className={card_capacity}>{` ${price} u$`}</p>
 
         <button className={buy_button} onClick={handleAddToCart}>
-          Add to Cart
+          Comprar
         </button>
       </div>
     </div>
